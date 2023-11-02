@@ -32,7 +32,7 @@ int main()
 		}
 		
 		waitpid(pid2, &status, 0);
-		printf("%d\n",answer);
+		printf("%d\n",status);
 		answer = status>>8;
 		printf("%d\n",answer);
 		waitpid(pid1, &status, 0);
@@ -57,7 +57,7 @@ int main()
 	else if(pid1 > 0 && pid2 == 0)
 	{
 		sleep(2);
-		int result;
+		int result = 1;
 		for(int i = x; i<=y; i++)
 		{
 			result *= i;
@@ -65,4 +65,6 @@ int main()
 		printf("pid2 : %d\n",result);
 		exit(result);
 	}
+	else
+		printf("fail to fork\n");
 }

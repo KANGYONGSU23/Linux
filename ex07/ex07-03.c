@@ -1,6 +1,9 @@
 #include <unistd.h>
+#include <stdio.h>
 
-main()
+int main()
 {
-	printf("be")
+	printf("before executing ls -l\n");
+	execl("/bin/ls", "ls", "-l", (char *)0);
+	printf("after executing ls -l\n");
 }
